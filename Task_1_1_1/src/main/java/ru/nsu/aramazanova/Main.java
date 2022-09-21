@@ -1,6 +1,15 @@
 package ru.nsu.aramazanova;
 
+/**
+ * sorting array
+ */
 public class Main {
+
+    /**
+     * sorting array.
+     *
+     * @param arr array
+     */
     public static void heapSort(int[] arr) {
         int size = arr.length;
         for (int i = size / 2 - 1; i >= 0; i--) {
@@ -14,6 +23,13 @@ public class Main {
         }
     }
 
+    /**
+     * search max element and put it in root of subtree
+     *
+     * @param arr array
+     * @param i root index of subtree
+     * @param size size of array
+     */
     public static void sort(int[] arr, int i, int size) {
         int l = 2 * i + 1;
         int r = 2 * i + 2;
