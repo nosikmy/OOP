@@ -1,7 +1,7 @@
 package ru.nsu.aramazanova;
 
 /**
- * sorting array
+ * sorting array.
  */
 public class Main {
 
@@ -24,7 +24,7 @@ public class Main {
     }
 
     /**
-     * search max element and put it in root of subtree
+     * search max element and put it in root of subtree.
      *
      * @param arr array
      * @param i root index of subtree
