@@ -3,7 +3,7 @@ package ru.nsu.aramazanova;
 /**
  * sorting array.
  */
-public class Main {
+public class HeapSort {
 
     /**
      * sorting array.

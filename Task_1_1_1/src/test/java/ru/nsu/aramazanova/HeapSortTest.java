@@ -6,45 +6,45 @@ import org.junit.jupiter.api.Test;
 /**
  * testing heapsort.
  */
-public class MainTest {
+public class HeapSortTest {
 
     @Test
-    public void test1() {
+    public void testReversedArray() {
         int[] arr = {5, 4, 3, 2, 1};
         int[] ans = {1, 2, 3, 4, 5};
-        Main.heapSort(arr);
+        HeapSort.heapSort(arr);
         Assertions.assertArrayEquals(ans, arr);
     }
 
     @Test
-    public void test2() {
+    public void testSortedArray() {
         int[] arr = {1, 2, 3, 4, 5};
         int[] ans = {1, 2, 3, 4, 5};
-        Main.heapSort(arr);
+        HeapSort.heapSort(arr);
         Assertions.assertArrayEquals(ans, arr);
     }
 
     @Test
-    public void test3() {
+    public void testOneElementArray() {
         int[] arr = {1};
         int[] ans = {1};
-        Main.heapSort(arr);
+        HeapSort.heapSort(arr);
         Assertions.assertArrayEquals(ans, arr);
     }
 
     @Test
-    public void test4() {
+    public void testEmptyArray() {
         int[] arr = {};
         int[] ans = {};
-        Main.heapSort(arr);
+        HeapSort.heapSort(arr);
         Assertions.assertArrayEquals(ans, arr);
     }
 
     @Test
-    public void test5() {
+    public void testRandomArray() {
         int[] arr = {5, 4, 6, 9, 8, 2, 4, 13, 5, 1, 17, 19};
         int[] ans = {1, 2, 4, 4, 5, 5, 6, 8, 9, 13, 17, 19};
-        Main.heapSort(arr);
+        HeapSort.heapSort(arr);
         Assertions.assertArrayEquals(ans, arr);
     }
 }
