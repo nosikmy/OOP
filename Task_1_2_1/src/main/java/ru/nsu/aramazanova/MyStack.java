@@ -32,7 +32,8 @@ public class MyStack {
      * @param newElem new element for stack
      */
     public void push(Object newElem) {
-        arr[count++] = newElem;;
+        arr[count++] = newElem;
+        ;
     }
 
     /**
@@ -67,7 +68,7 @@ public class MyStack {
      * @return new stack with deleted elements
      */
     public MyStack popStack(int length) {
-        if(length < 0){
+        if (length < 0) {
             return null;
         }
         MyStack poppedStack = new MyStack();

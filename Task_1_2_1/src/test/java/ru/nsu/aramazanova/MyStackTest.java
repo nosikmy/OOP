@@ -42,7 +42,7 @@ public class MyStackTest {
     }
 
     @Test
-    public void myTest(){
+    public void myTest() {
         MyStack ans = new MyStack();
         MyStack stack = new MyStack();
 
