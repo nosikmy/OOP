@@ -1,10 +1,13 @@
 package ru.nsu.aramazanova;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  * My stack realization.
  */
-public class MyStack {
-    public Object[] arr;
+public class MyStack<S> {
+    public S[] arr;
     public int count;
     public int size;
 
@@ -12,8 +15,8 @@ public class MyStack {
      * initial stack.
      */
     public MyStack() {
-        size = 1000;
-        arr = new Object[size];
+        size = 1;
+        arr = (S[]) new Object[size];
         count = 0;
     }
 
@@ -23,6 +26,7 @@ public class MyStack {
      * @return count elements
      */
     public int count() {
+
         return count;
     }
 
@@ -31,9 +35,12 @@ public class MyStack {
      *
      * @param newElem new element for stack
      */
-    public void push(Object newElem) {
+    public void push(S newElem) {
+        if (count == size) {
+            size *= 2;
+            arr = Arrays.copyOf(arr, size);
+        }
         arr[count++] = newElem;
-        ;
     }
 
     /**
@@ -41,7 +48,7 @@ public class MyStack {
      *
      * @param newStack stack with new elements for existing stack
      */
-    public void pushStack(MyStack newStack) {
+    public void pushStack(MyStack<S> newStack) {
         int l = newStack.count();
         for (int i = 0; i < l; i++) {
             push(newStack.arr[i]);
@@ -53,12 +60,14 @@ public class MyStack {
      *
      * @return deleted element
      */
-    public Object pop() {
+    public S pop() {
         if (count == 0) {
             return null;
         }
         count--;
-        return arr[count];
+        S popped = arr[count];
+        arr[count] = null;
+        return popped;
     }
 
     /**
@@ -67,11 +76,11 @@ public class MyStack {
      * @param length count elements for deleting
      * @return new stack with deleted elements
      */
-    public MyStack popStack(int length) {
+    public MyStack<S> popStack(int length) {
         if (length < 0) {
             return null;
         }
-        MyStack poppedStack = new MyStack();
+        MyStack<S> poppedStack = new MyStack<S>();
         int poppedSize = Math.min(length, count);
         for (int i = 0; i < poppedSize; i++) {
             poppedStack.push(pop());
@@ -82,18 +91,33 @@ public class MyStack {
     /**
      * stack comparison function.
      *
-     * @param test expected stack
+     * @param o expected stack
      * @return true if stacks are equal, else false
      */
-    public boolean check(MyStack test) {
-        if (count != test.count) {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        for (int i = 0; i < count; i++) {
-            if (arr[i] != test.arr[i]) {
-                return false;
-            }
+        MyStack<S> test = (MyStack<S>) o;
+        if(count != test.count()){
+            return false;
         }
-        return true;
+        boolean ans = true;
+        for(int i = 0; i < count; i++){
+            ans = ans & (arr[i] == test.arr[i]);
+        }
+        return ans;
+    }
+
+    /**
+     * returns hashcode.
+     *
+     * @return hashcode
+     */
+    @Override
+    public int hashCode() {
+        return 31 * (Objects.hash(count) + Arrays.hashCode(arr));
     }
 }
