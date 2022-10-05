@@ -113,7 +113,7 @@ public class MyStack<S> {
     }
 
     /**
-     * returns hashcode.
+     * return hashcode.
      *
      * @return hashcode
      */
