@@ -6,17 +6,32 @@ import java.util.Objects;
 /**
  * My stack realization.
  */
-public class MyStack<S> {
-    public S[] arr;
-    public int count;
-    public int size;
+public class MyStack<T> {
+
+    /**
+     * returns array
+     *
+     * @param array array
+     */
+    public void setArray(T[] array) {
+        this.array = array;
+    }
+
+    private T[] array;
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    private int count;
+    private int size;
 
     /**
      * Initial stack.
      */
     public MyStack() {
         size = 1;
-        arr = (S[]) new Object[size];
+        array = (T[]) new Object[size];
         count = 0;
     }
 
@@ -34,12 +49,12 @@ public class MyStack<S> {
      *
      * @param newElem new element for stack
      */
-    public void push(S newElem) {
+    public void push(T newElem) {
         if (count == size) {
             size *= 2;
-            arr = Arrays.copyOf(arr, size);
+            array = Arrays.copyOf(array, size);
         }
-        arr[count++] = newElem;
+        array[count++] = newElem;
     }
 
     /**
@@ -47,10 +62,10 @@ public class MyStack<S> {
      *
      * @param newStack stack with new elements for existing stack
      */
-    public void pushStack(MyStack<S> newStack) {
+    public void pushStack(MyStack<T> newStack) {
         int l = newStack.count();
         for (int i = 0; i < l; i++) {
-            push(newStack.arr[i]);
+            push(newStack.array[i]);
         }
     }
 
@@ -59,14 +74,12 @@ public class MyStack<S> {
      *
      * @return deleted element
      */
-    public S pop() {
+    public T pop() {
         if (count == 0) {
             return null;
         }
         count--;
-        S popped = arr[count];
-        arr[count] = null;
-        return popped;
+        return array[count];
     }
 
     /**
@@ -75,11 +88,8 @@ public class MyStack<S> {
      * @param length count elements for deleting
      * @return new stack with deleted elements
      */
-    public MyStack<S> popStack(int length) {
-        if (length < 0) {
-            return null;
-        }
-        MyStack<S> poppedStack = new MyStack<S>();
+    public MyStack<T> popStack(int length) {
+        MyStack<T> poppedStack = new MyStack<T>();
         int poppedSize = Math.min(length, count);
         for (int i = 0; i < poppedSize; i++) {
             poppedStack.push(pop());
@@ -101,15 +111,15 @@ public class MyStack<S> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        MyStack<S> test = (MyStack<S>) o;
+        MyStack<T> test = (MyStack<T>) o;
         if (count != test.count()) {
             return false;
         }
-        boolean ans = true;
+        boolean answer = true;
         for (int i = 0; i < count; i++) {
-            ans = ans & (arr[i] == test.arr[i]);
+            answer = answer & (array[i] == test.array[i]);
         }
-        return ans;
+        return answer;
     }
 
     /**
@@ -119,6 +129,6 @@ public class MyStack<S> {
      */
     @Override
     public int hashCode() {
-        return 31 * (Objects.hash(count) + Arrays.hashCode(arr));
+        return 31 * (Objects.hash(count) + Arrays.hashCode(array));
     }
 }
