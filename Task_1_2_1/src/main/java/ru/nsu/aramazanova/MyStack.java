@@ -26,7 +26,6 @@ public class MyStack<S> {
      * @return count elements
      */
     public int count() {
-
         return count;
     }
 
