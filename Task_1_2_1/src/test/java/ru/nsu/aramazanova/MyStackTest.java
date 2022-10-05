@@ -81,7 +81,7 @@ public class MyStackTest {
     }
 
     @Test
-    public void stringTypeTest(){
+    public void stringTypeTest() {
         MyStack<String> ans = new MyStack<String>();
         ans.count = 2;
         ans.arr = new String[]{"two", "cats"};

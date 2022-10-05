@@ -96,16 +96,18 @@ public class MyStack<S> {
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        if (this == o) {
+            return true;
+        }
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
         MyStack<S> test = (MyStack<S>) o;
-        if(count != test.count()){
+        if (count != test.count()) {
             return false;
         }
         boolean ans = true;
-        for(int i = 0; i < count; i++){
+        for (int i = 0; i < count; i++) {
             ans = ans & (arr[i] == test.arr[i]);
         }
         return ans;
