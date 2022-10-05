@@ -12,7 +12,7 @@ public class MyStack<S> {
     public int size;
 
     /**
-     * initial stack.
+     * Initial stack.
      */
     public MyStack() {
         size = 1;
