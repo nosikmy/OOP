@@ -135,7 +135,7 @@ public class MyStackTest {
     }
 
     @Test
-    public void pushTest(){
+    public void pushTest() {
         MyStack<Double> expectedStack = new MyStack<Double>();
         MyStack<Double> actualStack = new MyStack<Double>();
         expectedStack.setCount(2);
@@ -146,7 +146,7 @@ public class MyStackTest {
     }
 
     @Test
-    public void pushStackTest(){
+    public void pushStackTest() {
         MyStack<Character> expectedStack = new MyStack<Character>();
         MyStack<Character> actualStack = new MyStack<Character>();
         expectedStack.setCount(4);
@@ -160,7 +160,7 @@ public class MyStackTest {
     }
 
     @Test
-    public void popTest(){
+    public void popTest() {
         MyStack<Integer> expectedStack = new MyStack<Integer>();
         MyStack<Integer> actualStack = new MyStack<Integer>();
         expectedStack.setCount(3);
@@ -176,7 +176,7 @@ public class MyStackTest {
     }
 
     @Test
-    public void popStackTest(){
+    public void popStackTest() {
         MyStack<Integer> expectedStack = new MyStack<Integer>();
         MyStack<Integer> actualStack = new MyStack<Integer>();
         expectedStack.setCount(3);
