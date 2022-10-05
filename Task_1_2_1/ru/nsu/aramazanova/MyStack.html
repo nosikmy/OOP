@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -114,14 +114,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <main role="main">
 <div class="header">
 <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">ru.nsu.aramazanova</a></div>
-<h2 title="Class MyStack" class="title">Class MyStack</h2>
+<h2 title="Class MyStack" class="title">Class MyStack&lt;S&gt;</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>ru.nsu.aramazanova.MyStack</li>
+<li>ru.nsu.aramazanova.MyStack&lt;S&gt;</li>
 </ul>
 </li>
 </ul>
@@ -129,7 +129,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <hr>
-<pre>public class <span class="typeNameLabel">MyStack</span>
+<pre>public class <span class="typeNameLabel">MyStack&lt;S&gt;</span>
 extends java.lang.Object</pre>
 <div class="block">My stack realization.</div>
 </li>
@@ -153,7 +153,7 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>java.lang.Object[]</code></td>
+<td class="colFirst"><code><a href="MyStack.html" title="type parameter in MyStack">S</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#arr">arr</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -209,43 +209,50 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#check(ru.nsu.aramazanova.MyStack)">check</a></span>&#8203;(<a href="MyStack.html" title="class in ru.nsu.aramazanova">MyStack</a>&nbsp;test)</code></th>
-<td class="colLast">
-<div class="block">stack comparison function.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#count()">count</a></span>()</code></th>
 <td class="colLast">
 <div class="block">show count elements in the stack.</div>
 </td>
 </tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(java.lang.Object&nbsp;o)</code></th>
+<td class="colLast">
+<div class="block">stack comparison function.</div>
+</td>
+</tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>java.lang.Object</code></td>
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hashCode()">hashCode</a></span>()</code></th>
+<td class="colLast">
+<div class="block">returns hashcode.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="MyStack.html" title="type parameter in MyStack">S</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#pop()">pop</a></span>()</code></th>
 <td class="colLast">
 <div class="block">delete last element and return it.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="MyStack.html" title="class in ru.nsu.aramazanova">MyStack</a></code></td>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="MyStack.html" title="class in ru.nsu.aramazanova">MyStack</a>&lt;<a href="MyStack.html" title="type parameter in MyStack">S</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#popStack(int)">popStack</a></span>&#8203;(int&nbsp;length)</code></th>
 <td class="colLast">
 <div class="block">delete count of elements and return stack of them.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#push(java.lang.Object)">push</a></span>&#8203;(java.lang.Object&nbsp;newElem)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#push(S)">push</a></span>&#8203;(<a href="MyStack.html" title="type parameter in MyStack">S</a>&nbsp;newElem)</code></th>
 <td class="colLast">
 <div class="block">add new element in stack.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#pushStack(ru.nsu.aramazanova.MyStack)">pushStack</a></span>&#8203;(<a href="MyStack.html" title="class in ru.nsu.aramazanova">MyStack</a>&nbsp;newStack)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#pushStack(ru.nsu.aramazanova.MyStack)">pushStack</a></span>&#8203;(<a href="MyStack.html" title="class in ru.nsu.aramazanova">MyStack</a>&lt;<a href="MyStack.html" title="type parameter in MyStack">S</a>&gt;&nbsp;newStack)</code></th>
 <td class="colLast">
 <div class="block">add other stack in existing stack.</div>
 </td>
@@ -256,7 +263,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+<code>clone, finalize, getClass, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -280,7 +287,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>arr</h4>
-<pre>public&nbsp;java.lang.Object[] arr</pre>
+<pre>public&nbsp;<a href="MyStack.html" title="type parameter in MyStack">S</a>[] arr</pre>
 </li>
 </ul>
 <a id="count">
@@ -347,11 +354,13 @@ extends java.lang.Object</pre>
 </ul>
 <a id="push(java.lang.Object)">
 <!--   -->
+</a><a id="push(S)">
+<!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>push</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;push&#8203;(java.lang.Object&nbsp;newElem)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;push&#8203;(<a href="MyStack.html" title="type parameter in MyStack">S</a>&nbsp;newElem)</pre>
 <div class="block">add new element in stack.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -365,7 +374,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>pushStack</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;pushStack&#8203;(<a href="MyStack.html" title="class in ru.nsu.aramazanova">MyStack</a>&nbsp;newStack)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;pushStack&#8203;(<a href="MyStack.html" title="class in ru.nsu.aramazanova">MyStack</a>&lt;<a href="MyStack.html" title="type parameter in MyStack">S</a>&gt;&nbsp;newStack)</pre>
 <div class="block">add other stack in existing stack.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -379,7 +388,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>pop</h4>
-<pre class="methodSignature">public&nbsp;java.lang.Object&nbsp;pop()</pre>
+<pre class="methodSignature">public&nbsp;<a href="MyStack.html" title="type parameter in MyStack">S</a>&nbsp;pop()</pre>
 <div class="block">delete last element and return it.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -393,7 +402,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>popStack</h4>
-<pre class="methodSignature">public&nbsp;<a href="MyStack.html" title="class in ru.nsu.aramazanova">MyStack</a>&nbsp;popStack&#8203;(int&nbsp;length)</pre>
+<pre class="methodSignature">public&nbsp;<a href="MyStack.html" title="class in ru.nsu.aramazanova">MyStack</a>&lt;<a href="MyStack.html" title="type parameter in MyStack">S</a>&gt;&nbsp;popStack&#8203;(int&nbsp;length)</pre>
 <div class="block">delete count of elements and return stack of them.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -403,19 +412,37 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="check(ru.nsu.aramazanova.MyStack)">
+<a id="equals(java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>equals</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;equals&#8203;(java.lang.Object&nbsp;o)</pre>
+<div class="block">stack comparison function.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>equals</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>o</code> - expected stack</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if stacks are equal, else false</dd>
+</dl>
+</li>
+</ul>
+<a id="hashCode()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>check</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;check&#8203;(<a href="MyStack.html" title="class in ru.nsu.aramazanova">MyStack</a>&nbsp;test)</pre>
-<div class="block">stack comparison function.</div>
+<h4>hashCode</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;hashCode()</pre>
+<div class="block">returns hashcode.</div>
 <dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>test</code> - expected stack</dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>hashCode</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if stacks are equal, else false</dd>
+<dd>hashcode</dd>
 </dl>
 </li>
 </ul>
