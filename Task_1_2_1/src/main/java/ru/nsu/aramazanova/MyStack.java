@@ -22,7 +22,7 @@ public class MyStack<T> {
     }
 
     /**
-     * returns array
+     * returns array.
      *
      * @param array array
      */
