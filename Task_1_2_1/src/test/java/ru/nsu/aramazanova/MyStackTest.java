@@ -41,7 +41,7 @@ public class MyStackTest {
     }
 
     @Test
-    public void pushStackTest(){
+    public void pushStackTest() {
         MyStack<Integer> expectedStack = new MyStack<Integer>();
         expectedStack.setCount(2);
         Integer[] inputArray = new Integer[]{7, 19};
@@ -55,7 +55,7 @@ public class MyStackTest {
     }
 
     @Test
-    public void popTest(){
+    public void popTest() {
         MyStack<Integer> expectedStack = new MyStack<Integer>();
         expectedStack.setCount(4);
         Integer[] inputArray = new Integer[]{13, 45, 58, 77};
@@ -72,7 +72,7 @@ public class MyStackTest {
     }
 
     @Test
-    public void popStackTest(){
+    public void popStackTest() {
         MyStack<Integer> expectedStack = new MyStack<Integer>();
         expectedStack.setCount(2);
         Integer[] inputArray = new Integer[]{8, 77};
