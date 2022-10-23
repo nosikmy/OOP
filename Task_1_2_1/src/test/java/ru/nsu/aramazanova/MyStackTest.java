@@ -10,43 +10,83 @@ public class MyStackTest {
 
     @Test
     public void exampleTests() {
-        MyStack<Integer> expectedStack = new MyStack<Integer>();
-        expectedStack.setCount(1);
-        Integer[] inputArray = new Integer[]{2};
-        expectedStack.setArray(inputArray);
         MyStack<Integer> actualStack = new MyStack<Integer>();
         actualStack.push(2);
-        Assertions.assertEquals(actualStack, expectedStack);
-
-        expectedStack.setCount(2);
-        inputArray = new Integer[]{2, 7};
-        expectedStack.setArray(inputArray);
         actualStack.push(7);
-        Assertions.assertEquals(actualStack, expectedStack);
-
-        expectedStack.setCount(4);
-        inputArray = new Integer[]{2, 7, 4, 8};
-        expectedStack.setArray(inputArray);
         MyStack<Integer> inputStack = new MyStack<Integer>();
         inputStack.push(4);
         inputStack.push(8);
         actualStack.pushStack(inputStack);
-        Assertions.assertEquals(actualStack, expectedStack);
-
-        expectedStack.setCount(3);
-        inputArray = new Integer[]{2, 7, 4};
+        actualStack.pop();
+        actualStack.popStack(2);
+        MyStack<Integer> expectedStack = new MyStack<Integer>();
+        expectedStack.setCount(1);
+        Integer[] inputArray = new Integer[]{2};
         expectedStack.setArray(inputArray);
+        Assertions.assertEquals(actualStack, expectedStack);
+    }
+
+    @Test
+    public void pushTest() {
+        MyStack<Integer> expectedStack = new MyStack<Integer>();
+        expectedStack.setCount(4);
+        Integer[] inputArray = new Integer[]{2, 3, 5, 1};
+        expectedStack.setArray(inputArray);
+        MyStack<Integer> actualStack = new MyStack<Integer>();
+        actualStack.push(2);
+        actualStack.push(3);
+        actualStack.push(5);
+        actualStack.push(1);
+        Assertions.assertEquals(actualStack, expectedStack);
+    }
+
+    @Test
+    public void pushStackTest(){
+        MyStack<Integer> expectedStack = new MyStack<Integer>();
+        expectedStack.setCount(2);
+        Integer[] inputArray = new Integer[]{7, 19};
+        expectedStack.setArray(inputArray);
+        MyStack<Integer> input1 = new MyStack<Integer>();
+        input1.push(7);
+        input1.push(19);
+        MyStack<Integer> actualStack = new MyStack<Integer>();
+        actualStack.pushStack(input1);
+        Assertions.assertEquals(actualStack, expectedStack);
+    }
+
+    @Test
+    public void popTest(){
+        MyStack<Integer> expectedStack = new MyStack<Integer>();
+        expectedStack.setCount(4);
+        Integer[] inputArray = new Integer[]{13, 45, 58, 77};
+        expectedStack.setArray(inputArray);
+        MyStack<Integer> actualStack = new MyStack<Integer>();
+        actualStack.push(13);
+        actualStack.push(45);
+        actualStack.push(58);
+        actualStack.push(77);
+        actualStack.push(8);
         Object popped = actualStack.pop();
         Assertions.assertEquals(popped, 8);
         Assertions.assertEquals(actualStack, expectedStack);
+    }
 
+    @Test
+    public void popStackTest(){
+        MyStack<Integer> expectedStack = new MyStack<Integer>();
         expectedStack.setCount(2);
-        inputArray = new Integer[]{4, 7};
+        Integer[] inputArray = new Integer[]{8, 77};
         expectedStack.setArray(inputArray);
+        MyStack<Integer> actualStack = new MyStack<Integer>();
+        actualStack.push(13);
+        actualStack.push(45);
+        actualStack.push(58);
+        actualStack.push(77);
+        actualStack.push(8);
         MyStack<Integer> poppedStack = actualStack.popStack(2);
         Assertions.assertEquals(poppedStack, expectedStack);
-        expectedStack.setCount(1);
-        inputArray = new Integer[]{2};
+        expectedStack.setCount(3);
+        inputArray = new Integer[]{13, 45, 58};
         expectedStack.setArray(inputArray);
         Assertions.assertEquals(actualStack, expectedStack);
     }
@@ -124,72 +164,12 @@ public class MyStackTest {
         Assertions.assertEquals(actualStack, expectedStack);
 
         expectedStack.setCount(2);
-        inputArray = new String[]{"in garden", "together"};
+        inputArray = new String[]{"in garden", "sleep"};
         expectedStack.setArray(inputArray);
         MyStack<String> poppedStack = actualStack.popStack(2);
         Assertions.assertEquals(poppedStack, expectedStack);
         expectedStack.setCount(2);
         inputArray = new String[]{"two", "cats"};
-        expectedStack.setArray(inputArray);
-        Assertions.assertEquals(actualStack, expectedStack);
-    }
-
-    @Test
-    public void pushTest() {
-        MyStack<Double> expectedStack = new MyStack<Double>();
-        MyStack<Double> actualStack = new MyStack<Double>();
-        expectedStack.setCount(2);
-        Double[] inputArray = new Double[]{0.25d};
-        expectedStack.setArray(inputArray);
-        actualStack.push(0.25d);
-        Assertions.assertEquals(actualStack, expectedStack);
-    }
-
-    @Test
-    public void pushStackTest() {
-        MyStack<Character> expectedStack = new MyStack<Character>();
-        MyStack<Character> actualStack = new MyStack<Character>();
-        expectedStack.setCount(4);
-        Character[] inputArray = new Character[]{'a', 'Z'};
-        expectedStack.setArray(inputArray);
-        MyStack<Character> inputStack = new MyStack<Character>();
-        inputStack.push('a');
-        inputStack.push('Z');
-        actualStack.pushStack(inputStack);
-        Assertions.assertEquals(actualStack, expectedStack);
-    }
-
-    @Test
-    public void popTest() {
-        MyStack<Integer> expectedStack = new MyStack<Integer>();
-        MyStack<Integer> actualStack = new MyStack<Integer>();
-        expectedStack.setCount(3);
-        Integer[] inputArray = new Integer[]{252, 54, 553};
-        expectedStack.setArray(inputArray);
-        actualStack.push(252);
-        actualStack.push(54);
-        actualStack.push(553);
-        actualStack.push(8);
-        Object popped = actualStack.pop();
-        Assertions.assertEquals(popped, 8);
-        Assertions.assertEquals(actualStack, expectedStack);
-    }
-
-    @Test
-    public void popStackTest() {
-        MyStack<Integer> expectedStack = new MyStack<Integer>();
-        MyStack<Integer> actualStack = new MyStack<Integer>();
-        expectedStack.setCount(3);
-        Integer[] inputArray = new Integer[]{8, 553};
-        expectedStack.setArray(inputArray);
-        actualStack.push(252);
-        actualStack.push(54);
-        actualStack.push(553);
-        actualStack.push(8);
-        MyStack<Integer> poppedStack = actualStack.popStack(2);
-        Assertions.assertEquals(poppedStack, expectedStack);
-        expectedStack.setCount(1);
-        inputArray = new Integer[]{252, 54};
         expectedStack.setArray(inputArray);
         Assertions.assertEquals(actualStack, expectedStack);
     }

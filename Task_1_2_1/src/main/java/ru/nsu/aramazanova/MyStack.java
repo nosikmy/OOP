@@ -8,6 +8,19 @@ import java.util.Objects;
  */
 public class MyStack<T> {
 
+    private T[] array;
+    private int count;
+    private int size;
+
+    /**
+     * Initial stack.
+     */
+    public MyStack() {
+        this.size = 1;
+        this.array = (T[]) new Object[]{0};
+        this.count = 0;
+    }
+
     /**
      * returns array
      *
@@ -17,22 +30,8 @@ public class MyStack<T> {
         this.array = array;
     }
 
-    private T[] array;
-
     public void setCount(int count) {
         this.count = count;
-    }
-
-    private int count;
-    private int size;
-
-    /**
-     * Initial stack.
-     */
-    public MyStack() {
-        size = 1;
-        array = (T[]) new Object[size];
-        count = 0;
     }
 
     /**
@@ -111,15 +110,16 @@ public class MyStack<T> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        MyStack<T> test = (MyStack<T>) o;
+        MyStack<?> test = (MyStack<?>) o;
         if (count != test.count()) {
             return false;
         }
-        boolean answer = true;
         for (int i = 0; i < count; i++) {
-            answer = answer & (array[i] == test.array[i]);
+            if (array[i] != test.array[i]) {
+                return false;
+            }
         }
-        return answer;
+        return true;
     }
 
     /**
@@ -129,6 +129,8 @@ public class MyStack<T> {
      */
     @Override
     public int hashCode() {
-        return 31 * (Objects.hash(count) + Arrays.hashCode(array));
+        int result = Objects.hash(count);
+        result = 31 * result + Arrays.hashCode(array);
+        return result;
     }
 }
