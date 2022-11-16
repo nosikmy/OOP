@@ -19,7 +19,8 @@ public class Substring {
      * @return List of pairs of line and entry index
      * @throws IOException exception in case there are problems with the file
      */
-    public static List<Integer[]> searchSubstring(BufferedReader file, String inputSubstring) throws IOException {
+    public static List<Integer[]> searchSubstring(BufferedReader file, String inputSubstring)
+            throws IOException {
         byte[] bytesOfString = inputSubstring.getBytes();
         String substring = new String(bytesOfString, StandardCharsets.UTF_8);
         List<Integer[]> answer = new ArrayList<>(new ArrayList<>());
