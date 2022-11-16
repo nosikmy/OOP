@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.aramazanova1","l":"CreatorBigFile"},{"p":"ru.nsu.aramazanova1","l":"Substring"}]
