@@ -5,9 +5,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * creates a 10 GB file.
+ * creates a big file.
  */
 public class CreatorBigFile {
+
+    /**
+     * creates a 10 GB file.
+     *
+     * @param dir file directory
+     */
     public static void createBigFile(String dir) {
         try (BufferedWriter file = new BufferedWriter(new FileWriter(dir))) {
             for (int i = 0; i < 1000000; i++) {
