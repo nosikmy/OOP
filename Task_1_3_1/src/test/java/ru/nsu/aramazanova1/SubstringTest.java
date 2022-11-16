@@ -2,10 +2,13 @@ package ru.nsu.aramazanova1;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
-import org.junit.jupiter.api.Assertions;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
@@ -16,7 +19,7 @@ public class SubstringTest {
     @Test
     public void exampleTest1() throws IOException {
         List<Integer[]> ans = new ArrayList<>();
-        List<Integer[]> actual = new ArrayList<>();
+        List<Integer[]> actual;
         ans.add(new Integer[]{0, 7});
         try (BufferedReader file = new BufferedReader(new InputStreamReader(
                 new FileInputStream("src/test/resources/example1.txt"), UTF_8))) {
@@ -32,7 +35,7 @@ public class SubstringTest {
     @Test
     public void exampleTest2() throws IOException {
         List<Integer[]> ans = new ArrayList<>();
-        List<Integer[]> actual = new ArrayList<>();
+        List<Integer[]> actual;
         try (BufferedReader file = new BufferedReader(new InputStreamReader(
                 new FileInputStream("src/test/resources/example2.txt"), UTF_8))) {
             actual = Substring.searchSubstring(file, "пирог");
@@ -48,7 +51,7 @@ public class SubstringTest {
     public void linesTest() throws IOException {
 
         List<Integer[]> ans = new ArrayList<>();
-        List<Integer[]> actual = new ArrayList<>();
+        List<Integer[]> actual;
         ans.add(new Integer[]{0, 0});
         ans.add(new Integer[]{0, 2});
         ans.add(new Integer[]{1, 4});
@@ -66,7 +69,7 @@ public class SubstringTest {
     @Test
     public void warAndPeaceTest() throws IOException {
         List<Integer[]> ans = new ArrayList<>();
-        List<Integer[]> actual = new ArrayList<>();
+        List<Integer[]> actual;
         ans.add(new Integer[]{1558, 50});
         ans.add(new Integer[]{22526, 34});
         ans.add(new Integer[]{22549, 59});
@@ -93,7 +96,7 @@ public class SubstringTest {
     @Test
     public void emptyFileTest() throws IOException {
         List<Integer[]> ans = new ArrayList<>();
-        List<Integer[]> actual = new ArrayList<>();
+        List<Integer[]> actual;
         try (BufferedReader file = new BufferedReader(new InputStreamReader(
                 new FileInputStream("src/test/resources/empty.txt"), UTF_8))) {
             actual = Substring.searchSubstring(file, "");
@@ -109,7 +112,7 @@ public class SubstringTest {
     @Test
     public void bigFileTest() throws IOException {
         List<Integer[]> ans = new ArrayList<>();
-        List<Integer[]> actual = new ArrayList<>();
+        List<Integer[]> actual;
         ans.add(new Integer[]{15, 156});
         ans.add(new Integer[]{86, 456});
         ans.add(new Integer[]{123, 321});
