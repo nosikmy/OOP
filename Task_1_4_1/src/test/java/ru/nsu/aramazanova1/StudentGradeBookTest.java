@@ -22,7 +22,7 @@ public class StudentGradeBookTest {
             Assertions.assertEquals("Обычная", a.getScholarship(1));
             Assertions.assertEquals("Стипендии нет(", a.getScholarship(2));
             Assertions.assertEquals("Обычный диплом", a.getTypeOfDiploma());
-            Assertions.assertEquals("4,1", a.getAverage());
+            Assertions.assertEquals("4.1", a.getAverage());
         }
 
     }
@@ -63,10 +63,10 @@ public class StudentGradeBookTest {
                              "src/test/resources/myGradeBook.txt", StandardCharsets.UTF_8))) {
             StudentGradeBook a = new StudentGradeBook();
             a.createGradeBook(file);
-            Assertions.assertEquals("4,1", a.getAverage());
+            Assertions.assertEquals("4.1", a.getAverage());
             a.addMark("новый предмет 1", "хор.", 1);
             a.addMark("новый предмет 2", "удовл.", 2);
-            Assertions.assertEquals("4,0", a.getAverage());
+            Assertions.assertEquals("4.0", a.getAverage());
         }
     }
 

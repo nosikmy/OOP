@@ -142,8 +142,9 @@ public class StudentGradeBook {
      * @return average score
      */
     public String getAverage() {
-        double average = sumGrade / countGrade;
-        return String.format("%.1f", average);
+        double average = sumGrade / countGrade * 10;
+        average = Math.ceil(average) / 10;
+        return Double.toString(average);
     }
 
 }
