@@ -2,6 +2,9 @@ package ru.nsu.aramazanova1;
 
 import java.util.Arrays;
 
+/**
+ * Enum class for mark iteration.
+ */
 public enum Marks {
     FIVE("отл."),
     FOUR("хор."),
@@ -18,6 +21,12 @@ public enum Marks {
         return title;
     }
 
+    /**
+     * Function to find value
+     *
+     * @param mark title
+     * @return value
+     */
     public static Marks getMark(String mark) {
         return Arrays.stream(values())
                 .filter(value -> value.getTitle().equals(mark)).findAny()

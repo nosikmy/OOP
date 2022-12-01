@@ -98,6 +98,9 @@ public class StudentGradeBook {
                 markLastSemester input = new markLastSemester(1, semester);
                 gradeBook.put(String.valueOf(subject), input);
             }
+            default -> {
+                throw new IllegalArgumentException("Неправильное название оценки");
+            }
         }
     }
 
