@@ -11,12 +11,12 @@ import java.util.Map;
  */
 public class StudentGradeBook {
 
-    private final Map<String, markLastSemester> gradeBook;
+    private final Map<String, MarkLastSemester> gradeBook;
     private final Map<Integer, String> scholarships;
     private double sumGrade;
     private double countGrade;
 
-    record markLastSemester(Integer mark, Integer LastSemester) {
+    record MarkLastSemester(Integer mark, Integer LastSemester) {
     }
 
     ;
@@ -73,12 +73,12 @@ public class StudentGradeBook {
         Marks mark = Marks.getMark(m);
         switch (mark) {
             case FIVE -> {
-                markLastSemester input = new markLastSemester(5, semester);
+                MarkLastSemester input = new MarkLastSemester(5, semester);
                 gradeBook.put(String.valueOf(subject), input);
                 sumGrade += 5;
             }
             case FOUR -> {
-                markLastSemester input = new markLastSemester(4, semester);
+                MarkLastSemester input = new MarkLastSemester(4, semester);
                 gradeBook.put(String.valueOf(subject), input);
                 sumGrade += 4;
                 if (scholarships.get(semester).equals("Повышенная, но есть одна четверка")) {
@@ -88,14 +88,14 @@ public class StudentGradeBook {
                 }
             }
             case THREE -> {
-                markLastSemester input = new markLastSemester(3, semester);
+                MarkLastSemester input = new MarkLastSemester(3, semester);
                 gradeBook.put(String.valueOf(subject), input);
                 sumGrade += 3;
                 scholarships.put(semester, "Стипендии нет(");
             }
             case OFFSET -> {
                 countGrade--;
-                markLastSemester input = new markLastSemester(1, semester);
+                MarkLastSemester input = new MarkLastSemester(1, semester);
                 gradeBook.put(String.valueOf(subject), input);
             }
             default -> {
@@ -112,7 +112,7 @@ public class StudentGradeBook {
     public String getTypeOfDiploma() {
         double countOfFive = 0;
         double countOfMarks = 0;
-        for (markLastSemester h : gradeBook.values()) {
+        for (MarkLastSemester h : gradeBook.values()) {
             if (h.mark != 1) {
                 countOfMarks++;
             }

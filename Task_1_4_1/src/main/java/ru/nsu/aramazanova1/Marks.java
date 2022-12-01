@@ -22,7 +22,7 @@ public enum Marks {
     }
 
     /**
-     * Function to find value
+     * Function to find value.
      *
      * @param mark title
      * @return value
