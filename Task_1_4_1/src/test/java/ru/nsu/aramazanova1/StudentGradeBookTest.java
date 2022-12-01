@@ -35,7 +35,7 @@ public class StudentGradeBookTest {
             StudentGradeBook a = new StudentGradeBook();
             a.createGradeBook(file);
             Assertions.assertEquals("Красный диплом", a.getTypeOfDiploma());
-            a.addMark("предмет 1", "отл.", 3);
+            a.addMark("предмет 1", "удовл.", 3);
             Assertions.assertEquals("Обычный диплом", a.getTypeOfDiploma());
         }
     }
@@ -48,7 +48,7 @@ public class StudentGradeBookTest {
             StudentGradeBook a = new StudentGradeBook();
             a.createGradeBook(file);
             Assertions.assertEquals("Обычная", a.getScholarship(1));
-            Assertions.assertEquals("Повышенная", a.getScholarship(2));
+            Assertions.assertEquals("Повышенная, но есть одна четверка", a.getScholarship(2));
             a.addMark("новый предмет 1", "хор.", 2);
             Assertions.assertEquals("Обычная", a.getScholarship(2));
             a.addMark("новый предмет 2", "удовл.", 2);
@@ -64,7 +64,7 @@ public class StudentGradeBookTest {
             StudentGradeBook a = new StudentGradeBook();
             a.createGradeBook(file);
             Assertions.assertEquals("4,1", a.getAverage());
-            a.addMark("новый предмет 1", "удовл.", 2);
+            a.addMark("новый предмет 1", "хор.", 1);
             a.addMark("новый предмет 2", "удовл.", 2);
             Assertions.assertEquals("4,0", a.getAverage());
         }
