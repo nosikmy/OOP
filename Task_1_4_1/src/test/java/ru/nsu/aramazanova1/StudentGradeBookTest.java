@@ -1,17 +1,73 @@
 package ru.nsu.aramazanova1;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
+import java.nio.charset.StandardCharsets;
 
+/**
+ * Test class for testing grade book.
+ */
 public class StudentGradeBookTest {
     @Test
-    public void test() throws IOException {
-        StudentGradeBook a = new StudentGradeBook();
-        a.createGradeBook("src/test/resources/myGradeBook.txt", 1);
+    public void myGradeBookTest() throws IOException {
+        try (BufferedReader file =
+                     new BufferedReader(new FileReader(
+                             "src/test/resources/myGradeBook.txt", StandardCharsets.UTF_8))) {
+            StudentGradeBook a = new StudentGradeBook();
+            a.createGradeBook(file);
+            Assertions.assertEquals("Обычная", a.getScholarship(1));
+            Assertions.assertEquals("Стипендии нет(", a.getScholarship(2));
+            Assertions.assertEquals("Обычный диплом", a.getTypeOfDiploma());
+            Assertions.assertEquals("4,1", a.getAverage());
+        }
+
+    }
+
+    @Test
+    public void redDiplomaTest() throws IOException {
+        try (BufferedReader file =
+                     new BufferedReader(new FileReader(
+                             "src/test/resources/redDiploma.txt", StandardCharsets.UTF_8))) {
+            StudentGradeBook a = new StudentGradeBook();
+            a.createGradeBook(file);
+            Assertions.assertEquals("Красный диплом", a.getTypeOfDiploma());
+            a.addMark("предмет 1", "отл.", 3);
+            Assertions.assertEquals("Обычный диплом", a.getTypeOfDiploma());
+        }
+    }
+
+    @Test
+    public void scholarshipTest() throws IOException {
+        try (BufferedReader file =
+                     new BufferedReader(new FileReader(
+                             "src/test/resources/redDiploma.txt", StandardCharsets.UTF_8))) {
+            StudentGradeBook a = new StudentGradeBook();
+            a.createGradeBook(file);
+            Assertions.assertEquals("Обычная", a.getScholarship(1));
+            Assertions.assertEquals("Повышенная", a.getScholarship(2));
+            a.addMark("новый предмет 1", "хор.", 2);
+            Assertions.assertEquals("Обычная", a.getScholarship(2));
+            a.addMark("новый предмет 2", "удовл.", 2);
+            Assertions.assertEquals("Стипендии нет(", a.getScholarship(2));
+        }
+    }
+
+    @Test
+    public void averageTest() throws IOException {
+        try (BufferedReader file =
+                     new BufferedReader(new FileReader(
+                             "src/test/resources/myGradeBook.txt", StandardCharsets.UTF_8))) {
+            StudentGradeBook a = new StudentGradeBook();
+            a.createGradeBook(file);
+            Assertions.assertEquals("4,1", a.getAverage());
+            a.addMark("новый предмет 1", "удовл.", 2);
+            a.addMark("новый предмет 2", "удовл.", 2);
+            Assertions.assertEquals("4,0", a.getAverage());
+        }
     }
 
 }
