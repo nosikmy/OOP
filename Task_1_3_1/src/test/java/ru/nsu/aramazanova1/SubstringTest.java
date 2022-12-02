@@ -70,7 +70,7 @@ public class SubstringTest {
         }
     }
 
-   @Test
+    @Test
     public void warAndPeaceTest() throws IOException {
         List<Pair> ans = new ArrayList<>();
         List<Pair> actual;
