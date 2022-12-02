@@ -16,11 +16,6 @@ public class StudentGradeBook {
     private double sumGrade;
     private double countGrade;
 
-    record MarkLastSemester(Integer mark, Integer LastSemester) {
-    }
-
-    ;
-
     /**
      * Constructor of new grade book.
      */
@@ -39,10 +34,7 @@ public class StudentGradeBook {
     public void createGradeBook(BufferedReader file) throws IOException {
         String s;
         int currentSemester = 0;
-        while (true) {
-            if ((s = file.readLine()) == null) {
-                break;
-            }
+        while ((s = file.readLine()) != null) {
             String[] words = s.split(" ");
             if ("Успеваемость".equals(words[0])) {
                 currentSemester = words[2].charAt(0) - '0';
@@ -71,15 +63,15 @@ public class StudentGradeBook {
         scholarships.putIfAbsent(semester, "Повышенная");
         countGrade++;
         Marks mark = Marks.getMark(m);
+        MarkLastSemester input;
         switch (mark) {
             case FIVE -> {
-                MarkLastSemester input = new MarkLastSemester(5, semester);
+                input = new MarkLastSemester(5, semester);
                 gradeBook.put(String.valueOf(subject), input);
                 sumGrade += 5;
             }
             case FOUR -> {
-                MarkLastSemester input = new MarkLastSemester(4, semester);
-                gradeBook.put(String.valueOf(subject), input);
+                input = new MarkLastSemester(4, semester);
                 sumGrade += 4;
                 if (scholarships.get(semester).equals("Повышенная, но есть одна четверка")) {
                     scholarships.put(semester, "Обычная");
@@ -88,19 +80,22 @@ public class StudentGradeBook {
                 }
             }
             case THREE -> {
-                MarkLastSemester input = new MarkLastSemester(3, semester);
-                gradeBook.put(String.valueOf(subject), input);
+                input = new MarkLastSemester(3, semester);
                 sumGrade += 3;
                 scholarships.put(semester, "Стипендии нет(");
             }
             case OFFSET -> {
                 countGrade--;
-                MarkLastSemester input = new MarkLastSemester(1, semester);
-                gradeBook.put(String.valueOf(subject), input);
+                input = new MarkLastSemester(1, semester);
             }
             default -> {
                 throw new IllegalArgumentException("Неправильное название оценки");
             }
+        }
+        if(!gradeBook.containsKey(String.valueOf(subject))){
+            gradeBook.put(String.valueOf(subject), input);
+        }else if(gradeBook.get(String.valueOf(subject)).lastSemester() < semester){
+            gradeBook.put(String.valueOf(subject), input);
         }
     }
 
@@ -113,12 +108,12 @@ public class StudentGradeBook {
         double countOfFive = 0;
         double countOfMarks = 0;
         for (MarkLastSemester h : gradeBook.values()) {
-            if (h.mark != 1) {
+            if (h.mark() != 1) {
                 countOfMarks++;
             }
-            if (h.mark == 5) {
+            if (h.mark() == 5) {
                 countOfFive++;
-            } else if (h.mark == 3) {
+            } else if (h.mark() == 3) {
                 return "Обычный диплом";
             }
         }
