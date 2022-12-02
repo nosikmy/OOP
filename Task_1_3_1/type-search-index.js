@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.aramazanova1","l":"CreatorBigFile"},{"p":"ru.nsu.aramazanova1","l":"Substring"}]
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.aramazanova1","l":"CreatorBigFile"},{"p":"ru.nsu.aramazanova1","l":"Pair"},{"p":"ru.nsu.aramazanova1","l":"Substring"}];updateSearchResults();
