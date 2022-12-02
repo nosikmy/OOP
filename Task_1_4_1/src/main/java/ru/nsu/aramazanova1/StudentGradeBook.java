@@ -92,9 +92,9 @@ public class StudentGradeBook {
                 throw new IllegalArgumentException("Неправильное название оценки");
             }
         }
-        if(!gradeBook.containsKey(String.valueOf(subject))){
+        if (!gradeBook.containsKey(String.valueOf(subject))) {
             gradeBook.put(String.valueOf(subject), input);
-        }else if(gradeBook.get(String.valueOf(subject)).lastSemester() < semester){
+        } else if (gradeBook.get(String.valueOf(subject)).lastSemester() < semester) {
             gradeBook.put(String.valueOf(subject), input);
         }
     }
