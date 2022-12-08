@@ -15,9 +15,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String expression;
         System.out.println("Press q to quit");
-        while (true){
+        while (true) {
             expression = scanner.nextLine();
-            if(expression.equals("q")){
+            if (expression.equals("q")) {
                 break;
             }
             Double result = Calculator.calculate(expression);
