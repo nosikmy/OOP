@@ -6,6 +6,11 @@ import java.util.Scanner;
  * Main class.
  */
 public class Main {
+    /**
+     * The function scans the expression and outputs the answer to the standard output stream.
+     *
+     * @param args args
+     */
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         String expression;

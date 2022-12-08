@@ -14,7 +14,7 @@ public class Calculator {
     /**
      * Function for calculation unary expressions.
      *
-     * @param a operand
+     * @param a        operand
      * @param operator expression operator
      * @return calculation result
      */
@@ -31,8 +31,8 @@ public class Calculator {
     /**
      * Function for calculation binary expressions.
      *
-     * @param a first operand
-     * @param b second operand
+     * @param a        first operand
+     * @param b        second operand
      * @param operator expression operator
      * @return calculation result
      */
@@ -62,10 +62,11 @@ public class Calculator {
             if ((part.charAt(0) - '0') >= 0 && (part.charAt(0) - '0') <= 9) {
                 operands.push(Double.valueOf(part));
             } else {
-                Double a, b;
+                Double a;
+                Double b;
                 switch (part) {
                     case "+", "-", "*", "/", "pow" -> {
-                        if(operands.size()<2){
+                        if (operands.size() < 2) {
                             throw new IllegalArgumentException("Недостаточно операндов");
                         }
                         a = operands.pop();
@@ -81,7 +82,7 @@ public class Calculator {
             }
 
         }
-        if(operands.size()> 1){
+        if (operands.size() > 1) {
             throw new IllegalArgumentException("Лишний операнд");
         }
         return operands.peek();
