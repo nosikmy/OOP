@@ -3,7 +3,6 @@ package ru.nsu.aramazanova1;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
@@ -143,27 +142,3 @@ public class SubstringTest {
     }
 }
 
-    //about 6 minutes
-    /*@Test
-    public void bigFileTest() throws IOException {
-        List<Integer[]> ans = new ArrayList<>();
-        List<Integer[]> actual;
-        ans.add(new Integer[]{15, 156});
-        ans.add(new Integer[]{86, 456});
-        ans.add(new Integer[]{123, 321});
-        ans.add(new Integer[]{4444, 555});
-        ans.add(new Integer[]{6789, 987});
-        ans.add(new Integer[]{9999, 0});
-        CreatorBigFile.createBigFile("src/test/resources/big.txt");
-        try (BufferedReader file = new BufferedReader(new InputStreamReader(
-                Objects.requireNonNull(getClass().getClassLoader()
-                        .getResourceAsStream("big.txt")), UTF_8))) {
-            actual = Substring.searchSubstring(file, "abc");
-        }
-        Assertions.assertEquals(ans.size(), actual.size());
-        for (int i = 0; i < ans.size(); i++) {
-            Assertions.assertEquals(ans.get(i)[0], actual.get(i)[0]);
-            Assertions.assertEquals(ans.get(i)[1], actual.get(i)[1]);
-        }
-    }
-}*/
