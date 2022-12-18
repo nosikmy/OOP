@@ -3,6 +3,7 @@ package ru.nsu.aramazanova1;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
@@ -10,7 +11,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -129,11 +129,10 @@ public class SubstringTest {
         ans.add(new Pair(9999, 0));
         CreatorBigFile.createBigFile("src/test/resources/big.txt");
         try (BufferedReader file = new BufferedReader(new InputStreamReader(
-                Objects.requireNonNull(getClass().getClassLoader()
-                        .getResourceAsStream("big.txt")), UTF_8))) {
+                new FileInputStream("src/test/resources/big.txt"), UTF_8))) {
             actual = Substring.searchSubstring(file, "abc");
-            Files.delete(Paths.get("src/test/resources/big.txt"));
         }
+        Files.delete(Paths.get("src/test/resources/big.txt"));
         Assertions.assertEquals(ans.size(), actual.size());
         for (int i = 0; i < ans.size(); i++) {
             Assertions.assertEquals(ans.get(i).line(), actual.get(i).line());
