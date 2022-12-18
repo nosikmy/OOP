@@ -56,7 +56,6 @@ public class Substring {
                 globalIdx++;
             }
         }
-        file.close();
         return answer;
     }
 
