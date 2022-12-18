@@ -10,6 +10,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +26,8 @@ public class SubstringTest {
         List<Pair> actual;
         ans.add(new Pair(0, 7));
         try (BufferedReader file = new BufferedReader(new InputStreamReader(
-                new FileInputStream("src/test/resources/example1.txt"), UTF_8))) {
+                Objects.requireNonNull(getClass().getClassLoader()
+                        .getResourceAsStream("example1.txt")), UTF_8))) {
             actual = Substring.searchSubstring(file, "пирог");
         }
         Assertions.assertEquals(ans.size(), actual.size());
@@ -39,7 +42,8 @@ public class SubstringTest {
         List<Pair> ans = new ArrayList<>();
         List<Pair> actual;
         try (BufferedReader file = new BufferedReader(new InputStreamReader(
-                new FileInputStream("src/test/resources/example2.txt"), UTF_8))) {
+                Objects.requireNonNull(getClass().getClassLoader()
+                        .getResourceAsStream("example2.txt")), UTF_8))) {
             actual = Substring.searchSubstring(file, "пирог");
         }
         Assertions.assertEquals(ans.size(), actual.size());
@@ -58,7 +62,8 @@ public class SubstringTest {
         ans.add(new Pair(0, 2));
         ans.add(new Pair(1, 4));
         try (BufferedReader file = new BufferedReader(new InputStreamReader(
-                new FileInputStream("src/test/resources/2.txt"), UTF_8))) {
+                Objects.requireNonNull(getClass().getClassLoader()
+                        .getResourceAsStream("2.txt")), UTF_8))) {
             actual = Substring.searchSubstring(file, "баба");
         }
         Assertions.assertEquals(ans.size(), actual.size());
@@ -85,7 +90,8 @@ public class SubstringTest {
         ans.add(new Pair(44205, 13));
         ans.add(new Pair(63558, 19));
         try (BufferedReader file = new BufferedReader(new InputStreamReader(
-                new FileInputStream("src/test/resources/WarAndPeace.txt"), UTF_8))) {
+                Objects.requireNonNull(getClass().getClassLoader()
+                        .getResourceAsStream("WarAndPeace.txt")), UTF_8))) {
             actual = Substring.searchSubstring(file, "the oak");
         }
         Assertions.assertEquals(ans.size(), actual.size());
@@ -100,7 +106,8 @@ public class SubstringTest {
         List<Pair> ans = new ArrayList<>();
         List<Pair> actual;
         try (BufferedReader file = new BufferedReader(new InputStreamReader(
-                new FileInputStream("src/test/resources/empty.txt"), UTF_8))) {
+                Objects.requireNonNull(getClass().getClassLoader()
+                        .getResourceAsStream("empty.txt")), UTF_8))) {
             actual = Substring.searchSubstring(file, "");
         }
         Assertions.assertEquals(ans.size(), actual.size());
@@ -123,7 +130,8 @@ public class SubstringTest {
         ans.add(new Pair(9999, 0));
         CreatorBigFile.createBigFile("src/test/resources/big.txt");
         try (BufferedReader file = new BufferedReader(new InputStreamReader(
-                new FileInputStream("src/test/resources/big.txt"), UTF_8))) {
+                Objects.requireNonNull(getClass().getClassLoader()
+                        .getResourceAsStream("big.txt")), UTF_8))) {
             actual = Substring.searchSubstring(file, "abc");
             Files.delete(Paths.get("src/test/resources/big.txt"));
         }
@@ -134,3 +142,28 @@ public class SubstringTest {
         }
     }
 }
+
+    //about 6 minutes
+    /*@Test
+    public void bigFileTest() throws IOException {
+        List<Integer[]> ans = new ArrayList<>();
+        List<Integer[]> actual;
+        ans.add(new Integer[]{15, 156});
+        ans.add(new Integer[]{86, 456});
+        ans.add(new Integer[]{123, 321});
+        ans.add(new Integer[]{4444, 555});
+        ans.add(new Integer[]{6789, 987});
+        ans.add(new Integer[]{9999, 0});
+        CreatorBigFile.createBigFile("src/test/resources/big.txt");
+        try (BufferedReader file = new BufferedReader(new InputStreamReader(
+                Objects.requireNonNull(getClass().getClassLoader()
+                        .getResourceAsStream("big.txt")), UTF_8))) {
+            actual = Substring.searchSubstring(file, "abc");
+        }
+        Assertions.assertEquals(ans.size(), actual.size());
+        for (int i = 0; i < ans.size(); i++) {
+            Assertions.assertEquals(ans.get(i)[0], actual.get(i)[0]);
+            Assertions.assertEquals(ans.get(i)[1], actual.get(i)[1]);
+        }
+    }
+}*/
