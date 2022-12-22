@@ -24,7 +24,7 @@ public enum Marks {
     /**
      * Function to get integer value.
      *
-     * @return
+     * @return integer value
      */
     public Integer getIntValue() {
         return switch (this) {
