@@ -21,6 +21,16 @@ public enum Marks {
         return title;
     }
 
+    public Integer getValue() {
+        return switch (this) {
+            case FIVE -> 5;
+            case FOUR -> 4;
+            case THREE -> 3;
+            case OFFSET -> 0;
+            default -> throw new IllegalArgumentException("Неправильное название оценки");
+        };
+    }
+
     /**
      * Function to find value.
      *

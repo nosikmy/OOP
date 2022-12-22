@@ -12,7 +12,7 @@ import java.util.Map;
 public class StudentGradeBook {
 
     private final Map<String, MarkLastSemester> gradeBook;
-    private final Map<Integer, String> scholarships;
+    private final Map<Integer, Scholarships> scholarships;
     private double sumGrade;
     private double countGrade;
 
@@ -38,7 +38,7 @@ public class StudentGradeBook {
             String[] words = s.split(" ");
             if ("Успеваемость".equals(words[0])) {
                 currentSemester = words[2].charAt(0) - '0';
-                scholarships.put(currentSemester, "Повышенная");
+                scholarships.put(currentSemester, Scholarships.INCREASED);
             } else {
                 StringBuilder subject = new StringBuilder();
                 int n = words.length;
@@ -60,29 +60,26 @@ public class StudentGradeBook {
      * @param semester semester number
      */
     public void addMark(String subject, String m, int semester) {
-        scholarships.putIfAbsent(semester, "Повышенная");
+        scholarships.putIfAbsent(semester, Scholarships.INCREASED);
         countGrade++;
         Marks mark = Marks.getMark(m);
+        sumGrade += mark.getValue();
         MarkLastSemester input;
         switch (mark) {
             case FIVE -> {
                 input = new MarkLastSemester(5, semester);
                 gradeBook.put(String.valueOf(subject), input);
-                sumGrade += 5;
             }
             case FOUR -> {
                 input = new MarkLastSemester(4, semester);
-                sumGrade += 4;
-                if (scholarships.get(semester).equals("Повышенная, но есть одна четверка")) {
-                    scholarships.put(semester, "Обычная");
-                } else if (scholarships.get(semester).equals("Повышенная")) {
-                    scholarships.put(semester, "Повышенная, но есть одна четверка");
+                switch (scholarships.get(semester)) {
+                    case INCREASED -> scholarships.put(semester, Scholarships.ONEFOUR);
+                    case ONEFOUR -> scholarships.put(semester, Scholarships.NORMAL);
                 }
             }
             case THREE -> {
                 input = new MarkLastSemester(3, semester);
-                sumGrade += 3;
-                scholarships.put(semester, "Стипендии нет(");
+                scholarships.put(semester, Scholarships.NOSCHOLARSHIP);
             }
             case OFFSET -> {
                 countGrade--;
@@ -92,10 +89,10 @@ public class StudentGradeBook {
                 throw new IllegalArgumentException("Неправильное название оценки");
             }
         }
-        if (!gradeBook.containsKey(String.valueOf(subject))) {
-            gradeBook.put(String.valueOf(subject), input);
-        } else if (gradeBook.get(String.valueOf(subject)).lastSemester() < semester) {
-            gradeBook.put(String.valueOf(subject), input);
+        if (!gradeBook.containsKey(subject)) {
+            gradeBook.put(subject, input);
+        } else if (gradeBook.get(subject).lastSemester() < semester) {
+            gradeBook.put(subject, input);
         }
     }
 
@@ -105,18 +102,11 @@ public class StudentGradeBook {
      * @return diploma type at the moment
      */
     public String getTypeOfDiploma() {
-        double countOfFive = 0;
-        double countOfMarks = 0;
-        for (MarkLastSemester h : gradeBook.values()) {
-            if (h.mark() != 1) {
-                countOfMarks++;
-            }
-            if (h.mark() == 5) {
-                countOfFive++;
-            } else if (h.mark() == 3) {
-                return "Обычный диплом";
-            }
+        if (gradeBook.values().stream().anyMatch(x -> x.mark().equals(3))) {
+            return "Обычный диплом";
         }
+        double countOfFive = gradeBook.values().stream().filter(x -> x.mark() != 1).count();
+        double countOfMarks = gradeBook.values().stream().filter(x -> x.mark() == 5).count();
         if (countOfFive / countOfMarks * 100 >= 75.0) {
             return "Красный диплом";
         } else {
@@ -131,7 +121,7 @@ public class StudentGradeBook {
      * @return type of scholarship
      */
     public String getScholarship(int semester) {
-        return scholarships.get(semester);
+        return scholarships.get(semester).getTitle();
     }
 
     /**
