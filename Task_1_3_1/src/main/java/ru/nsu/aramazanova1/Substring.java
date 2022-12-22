@@ -2,6 +2,7 @@ package ru.nsu.aramazanova1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ public class Substring {
      * @return List of pairs of line and entry index
      * @throws IOException exception in case there are problems with the file
      */
-    public static List<Pair> searchSubstring(BufferedReader file, String inputSubstring)
+    public static List<Pair> searchSubstring(Reader file, String inputSubstring)
             throws IOException {
         byte[] bytesOfString = inputSubstring.getBytes();
         String substring = new String(bytesOfString, StandardCharsets.UTF_8);
