@@ -63,7 +63,7 @@ public class StudentGradeBook {
         scholarships.putIfAbsent(semester, Scholarships.INCREASED);
         countGrade++;
         Marks mark = Marks.getMark(m);
-        sumGrade += mark.getValue();
+        sumGrade += mark.getIntValue();
         MarkLastSemester input;
         switch (mark) {
             case FIVE -> {
@@ -75,6 +75,8 @@ public class StudentGradeBook {
                 switch (scholarships.get(semester)) {
                     case INCREASED -> scholarships.put(semester, Scholarships.ONEFOUR);
                     case ONEFOUR -> scholarships.put(semester, Scholarships.NORMAL);
+                    default -> {
+                    }
                 }
             }
             case THREE -> {

@@ -21,7 +21,12 @@ public enum Marks {
         return title;
     }
 
-    public Integer getValue() {
+    /**
+     * Function to get integer value.
+     *
+     * @return
+     */
+    public Integer getIntValue() {
         return switch (this) {
             case FIVE -> 5;
             case FOUR -> 4;
