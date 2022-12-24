@@ -22,7 +22,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void bigTest(){
+    public void bigTest() {
         Assertions.assertEquals(Calculator.calculate(
                 "log - cos - pow 2 5 / 64 2 sin * sqrt + 6 3 0"), 0);
     }
