@@ -24,7 +24,7 @@ public class Calculator {
             case "sqrt" -> Math.sqrt(a);
             case "sin" -> Math.sin(a);
             case "cos" -> Math.cos(a);
-            default -> null;
+            default -> throw new IllegalArgumentException("Такого оператора не существует");
         };
     }
 
@@ -43,7 +43,7 @@ public class Calculator {
             case "*" -> a * b;
             case "/" -> a / b;
             case "pow" -> Math.pow(a, b);
-            default -> null;
+            default -> throw new IllegalArgumentException("Такого оператора не существует");
         };
     }
 
@@ -59,7 +59,7 @@ public class Calculator {
         Stack<Double> operands = new Stack<>();
 
         for (String part : partsOfExpression) {
-            if ((part.charAt(0) - '0') >= 0 && (part.charAt(0) - '0') <= 9) {
+            if (Character.isDigit(part.charAt(0))) {
                 operands.push(Double.valueOf(part));
             } else {
                 Double a;
