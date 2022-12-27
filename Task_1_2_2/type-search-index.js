@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.aramazanova1","l":"BreathFirstSearchIterator"},{"p":"ru.nsu.aramazanova1","l":"DeepFirstSearchIterator"},{"p":"ru.nsu.aramazanova1","l":"Node"},{"p":"ru.nsu.aramazanova1","l":"TypesOfSearch"}]
