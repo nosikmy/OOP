@@ -1,15 +1,15 @@
 package ru.nsu.aramazanova1;
 
+import java.util.Iterator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import java.util.Iterator;
 
 /**
  * Tests for Tree realisation.
  */
 public class TreeTest {
     @Test
-    public void testBFS() throws Exception {
+    public void testBreathFirstSearch() throws Exception {
         Node<Integer> root = new Node<>(1);
         root.addChild(2);
         root.addChild(3);
@@ -24,7 +24,7 @@ public class TreeTest {
         root.setTypeOfSearch(TypesOfSearch.BFS);
         Integer actual = 0;
         Iterator<Integer> iterator = root.iterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             actual++;
             iterator.next();
         }
@@ -32,7 +32,7 @@ public class TreeTest {
     }
 
     @Test
-    public void testDFS() throws Exception {
+    public void testDeepFirstSearch() throws Exception {
         Node<Integer> root = new Node<>(1);
         root.addChild(2);
         root.addChild(3);
@@ -47,7 +47,7 @@ public class TreeTest {
         root.setTypeOfSearch(TypesOfSearch.DFS);
         Integer actual = 0;
         Iterator<Integer> iterator = root.iterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             actual++;
             iterator.next();
         }

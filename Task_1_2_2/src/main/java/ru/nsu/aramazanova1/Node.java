@@ -20,6 +20,11 @@ public class Node<T> implements Iterable<T> {
     private List<Node<T>> children;
     private TypesOfSearch typeOfSearch;
 
+    /**
+     * Initial constructor.
+     *
+     * @param value value of node
+     */
     public Node(T value) {
         this.value = value;
         this.parent = null;
@@ -73,7 +78,7 @@ public class Node<T> implements Iterable<T> {
      * Method that remove children from this node.
      */
     public void removeNode() throws Exception {
-        if(this.parent == null){
+        if (this.parent == null) {
             throw new Exception("Can't remove root");
         }
         Node<T> parent = getParent();
@@ -103,9 +108,9 @@ public class Node<T> implements Iterable<T> {
     @Override
     public Iterator<T> iterator() {
         if (typeOfSearch == TypesOfSearch.BFS) {
-            return new BFSIterator<>(this);
+            return new BreathFirstSearchIterator<>(this);
         } else {
-            return new DFSIterator<>(this);
+            return new DeepFirstSearchIterator<>(this);
         }
     }
 }

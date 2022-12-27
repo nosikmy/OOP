@@ -8,11 +8,16 @@ import java.util.Queue;
 /**
  * Breath First Search Iterator realization.
  */
-public class BFSIterator<T> implements Iterator<T> {
+public class BreathFirstSearchIterator<T> implements Iterator<T> {
     private final int modCount;
     Queue<Node<T>> queue;
 
-    public BFSIterator(Node<T> root) {
+    /**
+     * constructor for iteration by BFS.
+     *
+     * @param root root of the tree
+     */
+    public BreathFirstSearchIterator(Node<T> root) {
         this.modCount = Node.getModCount();
         this.queue = new LinkedList<>();
         queue.add(root);

@@ -7,11 +7,16 @@ import java.util.Stack;
 /**
  * Deep First Search Iterator realization.
  */
-public class DFSIterator<T> implements Iterator<T> {
+public class DeepFirstSearchIterator<T> implements Iterator<T> {
     private final int modCount;
     Stack<Node<T>> stack;
 
-    public DFSIterator(Node<T> root) {
+    /**
+     * constructor for iteration by DFS.
+     *
+     * @param root root of the tree
+     */
+    public DeepFirstSearchIterator(Node<T> root) {
         this.modCount = Node.getModCount();
         this.stack = new Stack<>();
         stack.add(root);
