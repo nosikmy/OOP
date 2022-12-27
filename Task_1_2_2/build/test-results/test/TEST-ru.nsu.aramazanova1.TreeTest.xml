@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.nsu.aramazanova1.TreeTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-12-27T18:56:06" hostname="LAPTOP-4NKQGND7" time="0.022">
-  <properties/>
-  <testcase name="testBFS()" classname="ru.nsu.aramazanova1.TreeTest" time="0.019"/>
-  <testcase name="testDFS()" classname="ru.nsu.aramazanova1.TreeTest" time="0.002"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
