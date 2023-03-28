@@ -90,7 +90,7 @@ public class CashRegister {
     public static List<Order> takeFromStock(int bagCapacity) throws InterruptedException {
         List<Order> orders = new ArrayList<>();
         int count = (int) min(ceil(
-                (double) (stockQueue.size() / totalBagCapacity) * bagCapacity) + 1, bagCapacity);
+                ((double) stockQueue.size() / totalBagCapacity) * bagCapacity + 1), bagCapacity);
         for (int i = 0; i < count; i++) {
             orders.add(stockQueue.take());
         }
@@ -105,14 +105,14 @@ public class CashRegister {
     public void closePizzeria() throws InterruptedException {
         while (true) {
             if (orderQueue.isEmpty() && cooks.stream().noneMatch(Cook::isWorking)) {
-                cooksPool.shutdownNow();
+                cooksPool.shutdown();
                 System.out.println("Cooks is going home");
                 break;
             }
         }
         while (true) {
             if (stockQueue.isEmpty() && deliverymen.stream().noneMatch(Deliveryman::isWorking)) {
-                deliverymenPool.shutdownNow();
+                deliverymenPool.shutdown();
                 System.out.println("Deliverymen is going home");
                 break;
             }
