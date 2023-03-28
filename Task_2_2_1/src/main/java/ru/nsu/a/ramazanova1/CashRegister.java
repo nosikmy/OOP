@@ -2,6 +2,7 @@ package ru.nsu.a.ramazanova1;
 
 import static java.lang.Math.ceil;
 import static java.lang.Math.min;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
@@ -50,7 +51,7 @@ public class CashRegister {
      * Puts new order to the queue.
      *
      * @param order new order
-     * @throws InterruptedException
+     * @throws InterruptedException if interrupted while waiting
      */
     public void addOrder(Order order) throws InterruptedException {
         orderQueue.put(order);
@@ -61,7 +62,7 @@ public class CashRegister {
      * Takes order from queue for cooks.
      *
      * @return order for cooking
-     * @throws InterruptedException
+     * @throws InterruptedException if interrupted while waiting
      */
     public static Order takeOrder() throws InterruptedException {
         return orderQueue.take();
@@ -71,7 +72,7 @@ public class CashRegister {
      * Add cooked order to stock.
      *
      * @param order cooked order
-     * @throws InterruptedException
+     * @throws InterruptedException if interrupted while waiting
      */
     public static void addToStock(Order order) throws InterruptedException {
         stockQueue.put(order);
@@ -84,7 +85,7 @@ public class CashRegister {
      *
      * @param bagCapacity Capacity of deliveryman's bag
      * @return list of orders for delivery
-     * @throws InterruptedException
+     * @throws InterruptedException if interrupted while waiting
      */
     public static List<Order> takeFromStock(int bagCapacity) throws InterruptedException {
         List<Order> orders = new ArrayList<>();
@@ -98,7 +99,7 @@ public class CashRegister {
     /**
      * Closing pizzeria. Stops the work of cooks and deliverymen.
      *
-     * @throws InterruptedException
+     * @throws InterruptedException if interrupted while waiting
      */
     public void closePizzeria() throws InterruptedException {
         while (true) {
