@@ -89,7 +89,8 @@ public class CashRegister {
      */
     public static List<Order> takeFromStock(int bagCapacity) throws InterruptedException {
         List<Order> orders = new ArrayList<>();
-        int count = (int) min(ceil((double) (stockQueue.size() / totalBagCapacity) * bagCapacity) + 1, bagCapacity);
+        int count = (int) min(ceil(
+                (double) (stockQueue.size() / totalBagCapacity) * bagCapacity) + 1, bagCapacity);
         for (int i = 0; i < count; i++) {
             orders.add(stockQueue.take());
         }
