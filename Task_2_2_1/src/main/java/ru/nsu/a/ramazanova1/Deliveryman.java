@@ -1,12 +1,11 @@
 package ru.nsu.a.ramazanova1;
 
-import java.sql.SQLOutput;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Class for deliveryman task.
+ */
 public class Deliveryman implements Runnable {
     private final String name;
 
@@ -29,7 +28,7 @@ public class Deliveryman implements Runnable {
 
     @Override
     public void run() {
-        while (!Thread.currentThread().isInterrupted()){
+        while (!Thread.currentThread().isInterrupted()) {
             try {
                 List<Order> orders = CashRegister.takeFromStock(bagCapacity);
                 isWorking = true;

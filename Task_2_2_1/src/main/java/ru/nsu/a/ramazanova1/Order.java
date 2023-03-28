@@ -1,8 +1,15 @@
 package ru.nsu.a.ramazanova1;
 
+/**
+ * Order class.
+ */
 public class Order {
     private int id;
     static int number = 0;
+
+    /**
+     * Enum class for status of order.
+     */
     public enum Status {
         ABSENT,
         ORDERED,
@@ -12,7 +19,12 @@ public class Order {
         DELIVERING,
         DELIVERED
     }
+
     Status status;
+
+    /**
+     * Constructor for order.
+     */
     public Order() {
         this.id = number;
         number++;
@@ -25,9 +37,6 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", status=" + status +
-                '}';
+        return "Order{" + "id=" + id + ", status=" + status + '}';
     }
 }

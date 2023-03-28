@@ -5,7 +5,7 @@ package ru.nsu.a.ramazanova1;
  */
 public class Main {
     /**
-     * Main class to start the program
+     * Main class to start the program.
      *
      * @param args args
      */

@@ -2,6 +2,9 @@ package ru.nsu.a.ramazanova1;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Class of cooks tasks.
+ */
 public class Cook implements Runnable {
     private final String name;
     private final int experience;
