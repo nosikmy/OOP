@@ -36,7 +36,7 @@ public class Deliveryman implements Runnable {
                 for (Order order : orders) {
                     order.setStatus(Order.Status.DELIVERING);
                     System.out.println(order + " by " + name);
-                    TimeUnit.SECONDS.sleep((int) (Math.random() * 5 + 1));
+                    TimeUnit.SECONDS.sleep((int) (Math.random() * 10 + 1));
                     order.setStatus(Order.Status.DELIVERED);
                     System.out.println(order + " by " + name);
                 }
