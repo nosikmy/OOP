@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.ramazanova.view","l":"Draw"},{"p":"ru.nsu.ramazanova","l":"Food"},{"p":"ru.nsu.ramazanova","l":"JsonData"},{"p":"ru.nsu.ramazanova","l":"Main"},{"p":"ru.nsu.ramazanova","l":"Snake"}];updateSearchResults();
