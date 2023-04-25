@@ -1,0 +1,31 @@
+{
+  "cooks": [
+    {
+      "name": "PapugAra",
+      "experience": 7
+    },
+    {
+      "name": "Yuriy",
+      "experience": 5
+    },
+    {
+      "name": "Gleb",
+      "experience": 2
+    }
+  ],
+  "deliverymen": [
+    {
+      "name": "Vadim",
+      "bagCapacity": 6
+    },
+    {
+      "name": "Igor",
+      "bagCapacity": 5
+    },
+    {
+      "name": "Misha",
+      "bagCapacity": 9
+    }
+  ],
+  "stockCapacity": 20
+}
